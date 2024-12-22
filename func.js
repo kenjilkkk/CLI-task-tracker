@@ -16,7 +16,7 @@ function add(desc) {
         if (err) throw err;
 
         // Success 
-        console.log("Done writing");
+        console.log(`taskID: ${New_Task.id}`);
     });
 
   Id.id += 1;

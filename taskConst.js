@@ -5,9 +5,5 @@ function Task(str) {
   this.id = 0;
   this.updatedAt = null;
 
-  function update(tsk) {
-    this.updatedAt = new Date();
-    this.taskName = tsk;
-  }
 }
 module.exports = { Task }

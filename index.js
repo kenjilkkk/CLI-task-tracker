@@ -1,11 +1,13 @@
-const a = require('./add');
-const T = require('./taskConst')
+const { add, updateTask } = require('./func.js');
+const { Task } = require('./taskConst.js')
 
 const args = process.argv.slice(2); //argumentos do command line
 
 
 if(args[0] === 'add') {
-  a.add(args[1]);
+  add(args[1]);
+}else if(args[0] === 'update') {
+  updateTask(args[1], args[2] )
 } 
 
 

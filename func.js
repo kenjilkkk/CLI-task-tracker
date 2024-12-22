@@ -65,4 +65,64 @@ function deleteTask(id) { // delete task, deletando tarefa
       console.log('Task deleted')
     })
 }
-module.exports = { add, updateTask, deleteTask }
+
+function changeStatus(status, id) {
+  Tsk  = require(`./tasks/${id}.json`);
+  Tsk.status = status;
+
+  fs.writeFile(
+    `./tasks/${id}.json`,
+    JSON.stringify(Tsk),
+    err => {
+        // Checking for errors 
+        if (err) throw err;
+
+        // Success 
+        console.log(`status: ${Tsk.status}`);
+    });
+}
+
+async function list(status) {
+  if(!status) {
+    const { readdir } = require('node:fs/promises');
+    try {
+    const files = await readdir('./tasks');
+    for (const file of files) {
+      task = require(`./tasks/${file}`);
+
+      console.log(task.description)
+      console.log(task.id)
+      console.log(task.status)
+      console.log('')
+    }
+
+    } catch (err) {
+      console.error(err);
+    }
+
+  }else {
+    const { readdir } = require('node:fs/promises');
+    try {
+    const files = await readdir('./tasks');
+    for (const file of files) {
+      task = require(`./tasks/${file}`);
+      if(task.status === status){
+        console.log(task.description)
+        console.log(task.id)
+        console.log(task.status)
+        console.log('')       
+      }
+    }
+
+    } catch (err) {
+      console.error(err);
+    }
+  } 
+
+}
+  
+
+
+
+
+module.exports = { add, updateTask, deleteTask, changeStatus, list }

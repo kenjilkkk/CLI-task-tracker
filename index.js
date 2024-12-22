@@ -1,3 +1,5 @@
+#!/usr/bin/node
+
 const { add, updateTask, deleteTask, changeStatus, list } = require('./func.js');
 const { Task } = require('./taskConst.js')
 
@@ -27,3 +29,6 @@ if(args[0] === 'add') {
 
 //Encontrar alguma forma de dar continuação no ID, no momento estao compartilhando o ID = 0
 
+//O que falta fazer:
+//Error handling, Otimizaçao, design, limitaçao de inputs
+// Todas as funcionalidades principais foram feitas. falta fazer above

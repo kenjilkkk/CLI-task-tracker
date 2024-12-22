@@ -43,6 +43,7 @@ function updateTask(id ,desc) {
   }
   Tsk.description = desc;
   Tsk.updatedAt = new Date();
+  Tsk.status = 'no status'
   
   
   fs.writeFile(

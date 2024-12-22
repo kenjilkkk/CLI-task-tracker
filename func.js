@@ -1,5 +1,5 @@
 const {Task} = require('./taskConst.js')
-
+const fs = require('fs');
 function add(desc) {
   // criar um novo arquivo json
   // com um objeto contendo o nome da tarefa, status, id, createdAt(data), updatedAt(data)
@@ -7,11 +7,9 @@ function add(desc) {
 
   let New_Task = new Task(desc);
   New_Task.id = Id.id;
-
-  const fs = require('fs');
   
   fs.writeFile(
-    `./tasks_jsons/${New_Task.id}.json`,
+    `./tasks/${New_Task.id}.json`,
     JSON.stringify(New_Task),
     err => {
         // Checking for errors 
@@ -37,9 +35,9 @@ function add(desc) {
 
 function updateTask(id ,desc) {
   let Tsk;
-  const fs = require('fs')
+
   try {
-    Tsk = require(`./tasks_jsons/${id}.json`); //Fecth o arquivo json da tarefa a ser modifcada
+    Tsk = require(`./tasks/${id}.json`); //Fecth o arquivo json da tarefa a ser modifcada
   }catch(err) {
     console.log(err);
   }
@@ -48,7 +46,7 @@ function updateTask(id ,desc) {
   
   
   fs.writeFile(
-    `./tasks_jsons/${id}.json`,
+    `./tasks/${id}.json`,
     JSON.stringify(Tsk),
     err => {
         // Checking for errors 
@@ -59,4 +57,12 @@ function updateTask(id ,desc) {
     });
 }
 
-module.exports = { add, updateTask }
+function deleteTask(id) { // delete task, deletando tarefa
+  fs.unlink(`./tasks/${id}.json`,
+    err => {
+      if(err) throw err;
+
+      console.log('Task deleted')
+    })
+}
+module.exports = { add, updateTask, deleteTask }

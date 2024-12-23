@@ -6,7 +6,7 @@ const { Task } = require('./taskConst.js')
 const args = process.argv.slice(2); //argumentos do command line
 
 
-if(args[0] === 'add') {
+if(args[0].toLowerCase() === 'add') {
   add(args[1]);
 }else if(args[0] === 'update') {
   updateTask(args[1], args[2] )
@@ -20,6 +20,8 @@ if(args[0] === 'add') {
   changeStatus('todo', args[1]);
 }else if(args[0] === 'list'){
   list(args[1])
+}else {
+  console.log('usage: node index.js <option> <ID> <Description>')
 }
 
 

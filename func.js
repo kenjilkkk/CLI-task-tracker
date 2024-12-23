@@ -39,7 +39,7 @@ function updateTask(id ,desc) {
   try {
     Tsk = require(`./tasks/${id}.json`); //Fecth o arquivo json da tarefa a ser modifcada
   }catch(err) {
-    console.log(err);
+    return console.log('Id is invalid');
   }
   Tsk.description = desc;
   Tsk.updatedAt = new Date();
@@ -91,14 +91,18 @@ async function list(status) {
     for (const file of files) {
       task = require(`./tasks/${file}`);
 
-      console.log(task.description)
-      console.log(task.id)
-      console.log(task.status)
+      console.log('--------------------------')
+      console.log(`Task: ${task.description}`)
+      console.log('--------------------------')
+      console.log(`ID: ${task.id}`)
+      console.log('--------------------------')
+      console.log(`Status: ${task.status}`)
+      console.log('--------------------------')
       console.log('')
     }
 
     } catch (err) {
-      console.error(err);
+      return console.error(err);
     }
 
   }else {
@@ -108,15 +112,19 @@ async function list(status) {
     for (const file of files) {
       task = require(`./tasks/${file}`);
       if(task.status === status){
-        console.log(task.description)
-        console.log(task.id)
-        console.log(task.status)
-        console.log('')       
+      console.log('--------------------------')
+      console.log(`Task: ${task.description}`)
+      console.log('--------------------------')
+      console.log(`ID: ${task.id}`)
+      console.log('--------------------------')
+      console.log(`Status: ${task.status}`)
+      console.log('--------------------------')
+      console.log('')     
       }
     }
 
     } catch (err) {
-      console.error(err);
+      return console.error(err);
     }
   } 
 

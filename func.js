@@ -41,8 +41,9 @@ function updateTask(id ,desc) {
   }catch(err) {
     return console.log('Id is invalid');
   }
+  let date = new Date();
   Tsk.description = desc;
-  Tsk.updatedAt = new Date();
+  Tsk.updatedAt = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes();
   Tsk.status = 'no status'
   
   
@@ -98,7 +99,16 @@ async function list(status) {
       console.log('--------------------------')
       console.log(`Status: ${task.status}`)
       console.log('--------------------------')
-      console.log('')
+      if(task.updatedAt != null) {
+        console.log(`Date of Update: ${task.updatedAt}`)
+        console.log('--------------------------')
+        console.log('')
+      }else{
+        console.log(`Date: ${task.createdAt}`)
+        console.log('--------------------------')
+        console.log('')        
+      }
+
     }
 
     } catch (err) {
@@ -119,7 +129,17 @@ async function list(status) {
       console.log('--------------------------')
       console.log(`Status: ${task.status}`)
       console.log('--------------------------')
-      console.log('')     
+      if(task.updatedAt != null) {
+        console.log(`Date of Update: ${task.updatedAt}`)
+        console.log('--------------------------')
+        console.log('')
+      }else{
+        console.log(`Date: ${task.createdAt}`)
+        console.log('--------------------------')
+        console.log('')        
+      }
+
+         
       }
     }
 
@@ -129,6 +149,7 @@ async function list(status) {
   } 
 
 }
+
   
 
 

@@ -8,17 +8,17 @@ const args = process.argv.slice(2); //argumentos do command line
 
 if(args[0].toLowerCase() === 'add') {
   add(args[1]);
-}else if(args[0] === 'update') {
+}else if(args[0].toLowerCase() === 'update') {
   updateTask(args[1], args[2] )
-} else if(args[0] === 'delete') {
+} else if(args[0].toLowerCase() === 'delete') {
   deleteTask(args[1]);
-}else if(args[0] === 'mark-in-progress') {
+}else if(args[0].toLowerCase() === 'mark-in-progress') {
   changeStatus('in-progress', args[1]);
-}else if(args[0] === 'mark-done') {
+}else if(args[0].toLowerCase() === 'mark-done') {
   changeStatus('done', args[1]);
-}else if(args[0] === 'mark-todo') {
+}else if(args[0].toLowerCase() === 'mark-todo') {
   changeStatus('todo', args[1]);
-}else if(args[0] === 'list'){
+}else if(args[0].toLowerCase() === 'list'){
   list(args[1])
 }else {
   console.log('usage: node index.js <option> <ID> <Description>')

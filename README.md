@@ -16,7 +16,7 @@
 
 <ol>
   <li>Clone this repository:
-    <pre><code>git clone https://github.com/seu-usuario/seu-repositorio.git</code></pre>
+    <pre><code>git clone https://github.com/kenjilkkk/CLI-task-tracker.git</code></pre>
   </li>
   <li>Navigate into the project folder:
     <pre><code>cd seu-repositorio</code></pre>

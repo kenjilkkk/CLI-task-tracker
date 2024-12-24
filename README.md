@@ -19,7 +19,7 @@
     <pre><code>git clone https://github.com/kenjilkkk/CLI-task-tracker.git</code></pre>
   </li>
   <li>Navigate into the project folder:
-    <pre><code>cd seu-repositorio</code></pre>
+    <pre><code>cd CLI-task-tracker</code></pre>
   </li>
   <li>Make sure you have Node.js installed.</li>
   <li>Run the following command to ensure everything is set up correctly:
